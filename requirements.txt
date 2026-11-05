@@ -1,0 +1,14 @@
+sentence-transformers>=3,<6
+langchain-community>=0.3,<0.5
+langchain-text-splitters>=0.3,<2
+langchain-huggingface>=0.1,<2
+langchain-core>=0.3,<2
+langchain-nvidia-ai-endpoints>=0.3,<2
+faiss-cpu>=1.9,<2
+deepl>=1.21,<2
+pandas>=2.2,<4
+matplotlib>=3.9,<4
+python-dotenv>=1,<2
+ipykernel>=6,<8
+jupyterlab>=4,<5
+nbformat>=5,<6

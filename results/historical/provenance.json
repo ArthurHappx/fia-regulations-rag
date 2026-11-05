@@ -1,0 +1,40 @@
+{
+  "description": "Notas extraídas de quatro CSVs locais de avaliação, sem reexecutar modelos.",
+  "academic_completion_date": "2026-03-05",
+  "historical_model_configuration": "Não confirmada nos CSVs originais.",
+  "question_id": "Posição 1-based; texto e ordem conferidos entre os quatro métodos.",
+  "weights": {
+    "Context_Coherence_Score": 0.1,
+    "Question_Relevance_Score": 0.2,
+    "Information_Density_Score": 0.1,
+    "Answer_Correctness_Score": 0.4,
+    "Information_Recall_Score": 0.2
+  },
+  "sources": [
+    {
+      "file": "avaliacao_a_final.csv",
+      "rows": 100,
+      "sha256": "5ad045b8f037a8079ed4a3d8292b8e34e8f841b324552549305ce912eac894ab"
+    },
+    {
+      "file": "avaliacao_b_final.csv",
+      "rows": 100,
+      "sha256": "2842103c8bf21c869c42d7d879fb75f3c2981decfdd19a1d68e5593dd83b31d6"
+    },
+    {
+      "file": "avaliacao_c_final.csv",
+      "rows": 100,
+      "sha256": "ea505718df98942ac71385688e185d9809c39bb85f106050e0d881f610d054c7"
+    },
+    {
+      "file": "avaliacao_noRAG_final.csv",
+      "rows": 100,
+      "sha256": "68405292b9ae5e8b596a20f6a2cd746bd315ecda39b42ca71ec55b4acceedf28"
+    }
+  ],
+  "limitations": [
+    "O prompt sem RAG no código recebido exige contexto e pode induzir abstenções.",
+    "Coerência contextual não se aplica diretamente ao método sem contexto.",
+    "Os modelos atuais não reproduzem necessariamente as notas históricas."
+  ]
+}

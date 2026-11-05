@@ -1,0 +1,283 @@
+{
+  "description": "Diagnóstico pós-hoc; corpus atual e contextos históricos não são a mesma execução.",
+  "parameters_from_current_notebook_not_historical_metadata": {
+    "A": {
+      "k": 60,
+      "top_k": 8
+    },
+    "B": {
+      "k": 80,
+      "top_k": 10
+    },
+    "C": {
+      "k": 60,
+      "top_k": 8
+    }
+  },
+  "tokenizer": "sentence-transformers/all-MiniLM-L6-v2 (cache local; sem truncamento na medição)",
+  "corpus": {
+    "A": {
+      "documents": 1282,
+      "characters": {
+        "mean": 974.616,
+        "median": 1125.0,
+        "p90": 1189.0,
+        "min": 20,
+        "max": 1199
+      },
+      "embedding_tokenizer_tokens": {
+        "mean": 232.748,
+        "median": 239.0,
+        "p90": 292.0,
+        "min": 8,
+        "max": 1076
+      },
+      "documents_over_256_tokens": 412,
+      "documents_over_512_tokens": 28
+    },
+    "B": {
+      "documents": 3716,
+      "characters": {
+        "mean": 380.785,
+        "median": 228.0,
+        "p90": 781.0,
+        "min": 4,
+        "max": 12581
+      },
+      "embedding_tokenizer_tokens": {
+        "mean": 90.396,
+        "median": 55.0,
+        "p90": 171.0,
+        "min": 3,
+        "max": 5615
+      },
+      "documents_over_256_tokens": 172,
+      "documents_over_512_tokens": 38,
+      "own_clause_id_present_in_text": 1567,
+      "longest_clause_id": "APPENDIX C1: DEFINITIONS#5",
+      "appendix_markers_in_longest_document": 0,
+      "first_appendix_offset_in_longest_document": -1
+    },
+    "C": {
+      "documents": 1340,
+      "characters": {
+        "mean": 853.513,
+        "median": 373.5,
+        "p90": 1442.9000000000012,
+        "min": 6,
+        "max": 111481
+      },
+      "embedding_tokenizer_tokens": {
+        "mean": 203.465,
+        "median": 87.0,
+        "p90": 327.0,
+        "min": 8,
+        "max": 34426
+      },
+      "documents_over_256_tokens": 200,
+      "documents_over_512_tokens": 62,
+      "own_clause_id_present_in_text": 1340,
+      "longest_clause_id": "A9.8.3",
+      "appendix_markers_in_longest_document": 9,
+      "first_appendix_offset_in_longest_document": 418
+    }
+  },
+  "historical": {
+    "A": {
+      "questions": 100,
+      "context_characters": {
+        "mean": 7813.24,
+        "median": 7885.0,
+        "p90": 9050.9,
+        "min": 4232,
+        "max": 9384
+      },
+      "context_embedding_tokenizer_tokens": {
+        "mean": 1672.61,
+        "median": 1662.0,
+        "p90": 1896.2,
+        "min": 932,
+        "max": 2446
+      },
+      "abstention_phrase_count": 34,
+      "global_score_mean": 51.883,
+      "metrics_mean": {
+        "Context_Coherence_Score": 61.97,
+        "Question_Relevance_Score": 68.48,
+        "Information_Density_Score": 68.32,
+        "Answer_Correctness_Score": 42.67,
+        "Information_Recall_Score": 40.45
+      }
+    },
+    "B": {
+      "questions": 100,
+      "context_characters": {
+        "mean": 4874.48,
+        "median": 3947.0,
+        "p90": 9144.000000000002,
+        "min": 865,
+        "max": 20163
+      },
+      "context_embedding_tokenizer_tokens": {
+        "mean": 1013.07,
+        "median": 859.0,
+        "p90": 1783.4,
+        "min": 170,
+        "max": 4108
+      },
+      "abstention_phrase_count": 37,
+      "global_score_mean": 48.428,
+      "metrics_mean": {
+        "Context_Coherence_Score": 58.12,
+        "Question_Relevance_Score": 65.2,
+        "Information_Density_Score": 69.32,
+        "Answer_Correctness_Score": 38.53,
+        "Information_Recall_Score": 36.16
+      }
+    },
+    "C": {
+      "questions": 100,
+      "context_characters": {
+        "mean": 10317.44,
+        "median": 6768.5,
+        "p90": 13730.100000000002,
+        "min": 1855,
+        "max": 119415
+      },
+      "context_embedding_tokenizer_tokens": {
+        "mean": 2336.68,
+        "median": 1406.0,
+        "p90": 2872.100000000001,
+        "min": 427,
+        "max": 36017
+      },
+      "abstention_phrase_count": 40,
+      "global_score_mean": 46.69,
+      "metrics_mean": {
+        "Context_Coherence_Score": 58.82,
+        "Question_Relevance_Score": 62.56,
+        "Information_Density_Score": 59.28,
+        "Answer_Correctness_Score": 38.55,
+        "Information_Recall_Score": 34.74
+      }
+    }
+  },
+  "paired_comparisons": {
+    "A_minus_B": {
+      "wins": 57,
+      "losses": 40,
+      "ties": 3,
+      "mean_difference": 3.455,
+      "exploratory_paired_bootstrap_95_interval": [
+        -2.742,
+        9.576
+      ],
+      "weighted_metric_contributions": {
+        "Context_Coherence_Score": 0.385,
+        "Question_Relevance_Score": 0.656,
+        "Information_Density_Score": -0.1,
+        "Answer_Correctness_Score": 1.656,
+        "Information_Recall_Score": 0.858
+      }
+    },
+    "A_minus_C": {
+      "wins": 51,
+      "losses": 46,
+      "ties": 3,
+      "mean_difference": 5.193,
+      "exploratory_paired_bootstrap_95_interval": [
+        -1.622,
+        12.111
+      ],
+      "weighted_metric_contributions": {
+        "Context_Coherence_Score": 0.315,
+        "Question_Relevance_Score": 1.184,
+        "Information_Density_Score": 0.904,
+        "Answer_Correctness_Score": 1.648,
+        "Information_Recall_Score": 1.142
+      }
+    }
+  },
+  "coarse_content_start_diagnostic": {
+    "A": {
+      "start_offset": 1048,
+      "article_1_clause_present_in_C": true
+    },
+    "B": {
+      "start_offset": 1193,
+      "article_1_clause_present_in_C": true
+    },
+    "C": {
+      "start_offset": 1176,
+      "article_1_clause_present_in_C": true
+    },
+    "F": {
+      "start_offset": 605,
+      "article_1_clause_present_in_C": false
+    }
+  },
+  "historical_sources": [
+    {
+      "file": "avaliacao_a_final.csv",
+      "sha256": "5ad045b8f037a8079ed4a3d8292b8e34e8f841b324552549305ce912eac894ab"
+    },
+    {
+      "file": "avaliacao_b_final.csv",
+      "sha256": "2842103c8bf21c869c42d7d879fb75f3c2981decfdd19a1d68e5593dd83b31d6"
+    },
+    {
+      "file": "avaliacao_c_final.csv",
+      "sha256": "ea505718df98942ac71385688e185d9809c39bb85f106050e0d881f610d054c7"
+    }
+  ],
+  "current_preprocessing_source_sha256": "a9f62eca3c735af1e3be63f06a3c9307a0597a30753ddfd47ed702dc8faa5b99",
+  "current_corpus_sources": [
+    {
+      "file": "CLEAN_FIA_2026_F1_Regulations_A_[General].md",
+      "sha256": "1106262ae82f993ddd6153a3cca5f165a2414ffa9df9748b82d492d67b87c47f"
+    },
+    {
+      "file": "CLEAN_FIA_2026_F1_Regulations_B_[Sporting].md",
+      "sha256": "53a078c51a6e3e6dcaf82f7c824b2d50bce02a2902a7f93bbd0daff9cc6787f4"
+    },
+    {
+      "file": "CLEAN_FIA_2026_F1_Regulations_C_[Technical].md",
+      "sha256": "dbc943e6a9512177c7fa6e81a28a6ea3d57c086e6eccaf10b4547d91bac52e10"
+    },
+    {
+      "file": "CLEAN_FIA_2026_F1_Regulations_F_[Operational].md",
+      "sha256": "43b5f5fcffabfbe5a635acfe4073a7acbc380813b9997b0cc003e46b137d3af2"
+    },
+    {
+      "file": "fia_rag_chunks.jsonl",
+      "sha256": "781c8d82edf871995ca0f3c557b122b7c156f57306760c6e7a4c6ff160c0864d"
+    }
+  ],
+  "illustrative_question_2": {
+    "A": {
+      "relevant_24_competitions_sentence_in_context": true,
+      "answer_characters": 107,
+      "correctness_score": 100.0,
+      "density_score": 100.0
+    },
+    "B": {
+      "relevant_24_competitions_sentence_in_context": true,
+      "answer_characters": 586,
+      "correctness_score": 100.0,
+      "density_score": 88.0
+    },
+    "C": {
+      "relevant_24_competitions_sentence_in_context": true,
+      "answer_characters": 107,
+      "correctness_score": 100.0,
+      "density_score": 100.0
+    }
+  },
+  "limitations": [
+    "Caracteres e tokens deste tokenizer não medem tokens exatos do LLM gerador.",
+    "Medições atuais do corpus não comprovam a versão usada nos CSVs históricos.",
+    "A frase de abstenção é uma heurística, não uma classificação de corretude.",
+    "Bootstrap pareado pós-hoc: reamostra perguntas; não mede variabilidade dos modelos ou generalização.",
+    "Não foram refeitas a recuperação, a geração ou a avaliação; não há evidência causal."
+  ]
+}
